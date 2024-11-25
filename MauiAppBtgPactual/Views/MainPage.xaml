@@ -44,8 +44,18 @@
                         StrokeThickness="0">
                     <Border Margin="15"
                         Style="{StaticResource borderPadrao}">
-                        <Grid x:Name="gridPrincipal">
-                            <Button Clicked="Button_Clicked" Text="Cliente"/>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <VerticalStackLayout>
+                                <Button Clicked="Button_Clicked" 
+                                        Text="Novo"
+                                        HorizontalOptions="End"
+                                        BackgroundColor="Green"/>
+                            </VerticalStackLayout>
+                                
                         </Grid>
                     </Border>
                 </Border>

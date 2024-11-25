@@ -69,7 +69,7 @@
                         Command="{Binding CancelCommand}"/>
                 <Button Text="Deletar"
                         IsVisible="{Binding IsDelete}"
-                        Background="{StaticResource gradientBrushLilas}"
+                        Background="{StaticResource blueFoscoGradiente}"
                         Command="{Binding DeleteCommand}"/>
                 <Button Text="Salvar"
                         Background="{StaticResource gradientBrushLilas}"

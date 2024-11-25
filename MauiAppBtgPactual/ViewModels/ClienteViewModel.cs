@@ -1,13 +1,12 @@
 ﻿using MauiAppBtgPactual.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 
 namespace MauiAppBtgPactual.ViewModels;
 
-public class ClienteViewModel : INotifyPropertyChanged
+public sealed class ClienteViewModel : BaseViewModel
 {
     public ObservableCollection<ClienteModel>? ClienteObservable { get; set; }
     public ICommand CancelCommand { get; set; }
@@ -71,7 +70,6 @@ public class ClienteViewModel : INotifyPropertyChanged
         }
     }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
 
     public ClienteViewModel()
     {
@@ -79,20 +77,52 @@ public class ClienteViewModel : INotifyPropertyChanged
         ClienteObservable = new ObservableCollection<ClienteModel>();
         CancelCommand = new Command(execute: async () =>
         {
+            var valid = !(string.IsNullOrEmpty(Name) &&
+            string.IsNullOrEmpty(LastName) &&
+            string.IsNullOrEmpty(Age) &&
+            string.IsNullOrEmpty(Address));
+
+            if (valid)
+            {
+                string msg = "Deseja descartar ";
+                if (ID.Equals(Guid.Empty))
+                    msg += "os dados?";
+                else
+                    msg += "as alterações?";
+
+                if (!(await App.Current!.MainPage!
+                .DisplayAlert("Cancelar", msg,
+                "Sim", "Não")))
+                {
+                    return;
+                }
+            }
+
             await ((NavigationPage)App.Current!.MainPage!).PopAsync();
             await LimparCampos();
         });
 
         SaveCommand = new Command(execute: async () =>
         {
+            if (ID.Equals(Guid.Empty))
+            {
+                ID = Guid.NewGuid();
+            }
+            else
+            {
+                var cliente = ClienteObservable.First(f => f.ID == ID);
+                ClienteObservable.Remove(cliente);
+            }
+
             ClienteObservable.Add(new ClienteModel
             {
-                ID = Guid.NewGuid(),
+                ID = ID,
                 Address = Address,
                 Age = Convert.ToInt32(Age),
                 LastName = LastName,
                 Name = Name
             });
+
             await LimparCampos("Registro salvo com sucesso!");
         },
         canExecute: () =>
@@ -141,10 +171,5 @@ public class ClienteViewModel : INotifyPropertyChanged
     private void CanRefresh(object sender, PropertyChangedEventArgs args)
     {
         (SaveCommand as Command)!.ChangeCanExecute();
-    }
-
-    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
