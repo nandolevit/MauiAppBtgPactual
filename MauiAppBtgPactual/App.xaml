@@ -48,7 +48,10 @@
                 <GradientStop Color="#f5f7fa" Offset="0"/>
                 <GradientStop Color="#c3cfe2" Offset="1"/>
             </LinearGradientBrush>
-
+            <Style TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
             <Style TargetType="Frame">
                 <Setter Property="BorderColor" Value="Transparent"/>
             </Style>
