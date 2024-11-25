@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppBtgPactual.MainPage"
+             BackgroundColor="Transparent">
+    <Grid>
+        <Border Style="{StaticResource borderPadrao}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label 
+                      Grid.Column="1"
+                       FontSize="16"/>
+                <Grid Grid.ColumnSpan="3" />
+                <HorizontalStackLayout
+                        Spacing="20"
+                        Margin="10">
+                    <Border StrokeThickness="0"
+                        VerticalOptions="Center"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        BackgroundColor="#537895">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="50"/>
+                        </Border.StrokeShape>
+                        <Image Source="../Images/clients.png"/>
+                    </Border>
+                    <Label Text="Cadastro de Clientes"
+                           VerticalOptions="Center"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           TextColor="#537895"/>
+                </HorizontalStackLayout>
+                <Border Grid.Row="1" Grid.ColumnSpan="3"
+                        BackgroundColor="#537895"
+                        StrokeThickness="0">
+                    <Border Margin="15"
+                        Style="{StaticResource borderPadrao}">
+                        <Grid x:Name="gridPrincipal">
+                           
+                        </Grid>
+                    </Border>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>

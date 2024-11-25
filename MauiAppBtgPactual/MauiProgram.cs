@@ -30,6 +30,7 @@ namespace MauiAppBtgPactual
                         switch (appWindow.Presenter)
                         {
                             case Microsoft.UI.Windowing.OverlappedPresenter overlappedPresenter:
+                                //overlappedPresenter.SetBorderAndTitleBar(false, false);
                                 overlappedPresenter.Maximize();
                                 break;
                         }

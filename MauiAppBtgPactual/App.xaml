@@ -9,6 +9,64 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <LinearGradientBrush x:Key="gradientBrushRedSylvia" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#ff4b1f" Offset="0.0"/>
+                <GradientStop Color="#ff9068" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="gradientBrushLilas" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#3B3486" Offset="0.0"/>
+                <GradientStop Color="#7743DB" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="darkGradiente" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="#232526" Offset="0.0"/>
+                <GradientStop Color="#414345" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="darkDeepGradiente" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="#434343" Offset="0"/>
+                <GradientStop Color="#000000" Offset="1"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="grayGradiente" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="#d7d2cc" Offset="0"/>
+                <GradientStop Color="#304352" Offset="1"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="blueNeveGradiente" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="#93a5cf" Offset="0"/>
+                <GradientStop Color="#e4efe9" Offset="1"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="blueFoscoGradiente" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="#09203f" Offset="0"/>
+                <GradientStop Color="#537895" Offset="1"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="brancoNeveGradiente" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                <GradientStop Color="#f5f7fa" Offset="0"/>
+                <GradientStop Color="#c3cfe2" Offset="1"/>
+            </LinearGradientBrush>
+
+            <Style TargetType="Frame">
+                <Setter Property="BorderColor" Value="Transparent"/>
+            </Style>
+            
+            <Style x:Key="borderPadrao" TargetType="Border">
+                <Setter Property="StrokeThickness" Value="0"/>
+                <Setter Property="StrokeShape">
+                    <Setter.Value>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="{StaticResource darkGradiente}"/>
+            </Style>
+
+            <Style x:Key="borderCampos" TargetType="Border" BasedOn="{StaticResource borderPadrao}">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
