@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAppBtgPactual.MainPage"
-             BackgroundColor="Transparent">
+             x:Class="MauiAppBtgPactual.Views.MainPage">
     <Grid>
         <Border Style="{StaticResource borderPadrao}">
             <Grid>
@@ -45,7 +44,7 @@
                     <Border Margin="15"
                         Style="{StaticResource borderPadrao}">
                         <Grid x:Name="gridPrincipal">
-                           
+                            <Button Clicked="Button_Clicked" Text="Cliente"/>
                         </Grid>
                     </Border>
                 </Border>

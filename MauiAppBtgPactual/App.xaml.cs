@@ -1,13 +1,16 @@
 ﻿
+using MauiAppBtgPactual.ViewModels;
+using MauiAppBtgPactual.Views;
+
 namespace MauiAppBtgPactual
 {
     public partial class App : Application
     {
-        public App()
+        public App(ClienteViewModel viewModel)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new MauiAppBtgPactual.Views.MainPage(viewModel));
         }
     }
 }

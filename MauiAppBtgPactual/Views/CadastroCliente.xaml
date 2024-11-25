@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppBtgPactual.Views.CadastroCliente"
+             Title="Cadastrar Cliente">
+    <VerticalStackLayout Spacing="15"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         WidthRequest="500">
+        <VerticalStackLayout.Resources>
+            <Style TargetType="Border">
+                <Setter Property="StrokeThickness" Value="0"/>
+            </Style>
+            <Style TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="5"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="10,0,0,0"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </VerticalStackLayout.Resources>
+        <Label Text="Cadastrar Cliente"
+               FontSize="25"
+               HorizontalOptions="Center"
+               Margin="20"/>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Name:"/>
+                <Entry Text="{Binding Name}" Placeholder="Name" MaxLength="16"/>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Last Name:"/>
+                <Entry Text="{Binding LastName}" Placeholder="LastName" MaxLength="16"/>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Age:"/>
+                <Entry Text="{Binding Age}" Placeholder="Age" MaxLength="2"/>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Address:"/>
+                <Entry Text="{Binding Address}" Placeholder="Address" MaxLength="128"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiAppBtgPactual.ViewModels;
+using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 
 namespace MauiAppBtgPactual
@@ -10,12 +11,13 @@ namespace MauiAppBtgPactual
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddTransient<ClienteViewModel>();
 #if WINDOWS
             builder.ConfigureLifecycleEvents(events =>
             {
