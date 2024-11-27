@@ -27,11 +27,12 @@
                         VerticalOptions="Center"
                         HeightRequest="40"
                         WidthRequest="40"
-                        BackgroundColor="#537895">
+                            Padding="5"
+                        BackgroundColor="White">
                         <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="50"/>
+                            <RoundRectangle CornerRadius="25"/>
                         </Border.StrokeShape>
-                        <Image Source="../Images/clients.png"/>
+                        <Image Source="https://store-images.s-microsoft.com/image/apps.45643.7bd8958c-8f35-4a2e-923a-abd237758313.67b31617-8fa2-4636-857a-3c18cf058caa.8832cfa9-a878-4929-8443-509b4cf0eeb7.png"/>
                     </Border>
                     <Label Text="Cadastro de Clientes"
                            VerticalOptions="Center"
@@ -54,6 +55,7 @@
                                         Text="Novo"
                                         HorizontalOptions="End"
                                         BackgroundColor="Green"/>
+                                
                             </VerticalStackLayout>
                                 
                         </Grid>
