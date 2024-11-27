@@ -48,9 +48,11 @@
                 <GradientStop Color="#f5f7fa" Offset="0"/>
                 <GradientStop Color="#c3cfe2" Offset="1"/>
             </LinearGradientBrush>
+            
             <Style TargetType="Button">
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Padding" Value="5 20"/>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <Setter.Value>
                         <VisualStateGroupList>
@@ -74,10 +76,7 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            <Style TargetType="Frame">
-                <Setter Property="BorderColor" Value="Transparent"/>
-            </Style>
-            
+
             <Style x:Key="borderPadrao" TargetType="Border">
                 <Setter Property="StrokeThickness" Value="0"/>
                 <Setter Property="StrokeShape">
