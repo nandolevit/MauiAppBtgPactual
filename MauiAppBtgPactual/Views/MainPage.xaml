@@ -8,18 +8,12 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label 
-                      Grid.Column="1"
-                       FontSize="16"/>
-                <Grid Grid.ColumnSpan="3" />
                 <HorizontalStackLayout
                         Spacing="20"
                         Margin="10">
@@ -40,26 +34,36 @@
                            FontAttributes="Bold"
                            TextColor="#537895"/>
                 </HorizontalStackLayout>
-                <Border Grid.Row="1" Grid.ColumnSpan="3"
+                <Border Grid.Row="1"
                         BackgroundColor="#537895"
                         StrokeThickness="0">
                     <Border Margin="15"
-                        Style="{StaticResource borderPadrao}">
+                        Style="{StaticResource borderPadrao}"
+                        WidthRequest="750">
                         <Grid Padding="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <VerticalStackLayout>
+                            <Grid>
+                                <Label Text="Lista de Clientes"
+                                       HorizontalOptions="Center"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
                                 <Button Clicked="Button_Clicked" 
                                         Text="Novo"
                                         HorizontalOptions="End"
-                                        BackgroundColor="Green"/>
+                                        BackgroundColor="Green"
+                                        Margin="0, 0, 0, 5"/>
+                            </Grid>
+                            <VerticalStackLayout Grid.Row="1">
                                 <CollectionView ItemsSource="{Binding ClienteObservable}"
-                                                Margin="10">
+>
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Border Padding="20, 5"
+                                            <Grid Padding="2">
+                                                <Border Padding="20, 5"
                                                     StrokeThickness="2"
                                                     StrokeShape="RoundRectangle 40,0,0,40"
                                                     Background="{StaticResource blueNeveGradiente}">
@@ -122,9 +126,11 @@
                                                         AncestorType={x:Type CollectionView},
                                                         Mode=FindAncestor}, 
                                                         Path=BindingContext.EditCommand}"
-                                                            CommandParameter="{Binding .}"/>
+                                                            CommandParameter="{Binding .}"
+                                                            Background="{DynamicResource blueFoscoGradiente}"/>
                                                 </Grid>
                                             </Border>
+                                            </Grid>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
