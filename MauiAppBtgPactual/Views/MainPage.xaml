@@ -55,7 +55,79 @@
                                         Text="Novo"
                                         HorizontalOptions="End"
                                         BackgroundColor="Green"/>
-                                
+                                <CollectionView ItemsSource="{Binding ClienteObservable}"
+                                                Margin="10">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Padding="20, 5"
+                                                    StrokeThickness="2"
+                                                    StrokeShape="RoundRectangle 40,0,0,40"
+                                                    Background="{StaticResource blueNeveGradiente}">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <HorizontalStackLayout Spacing="5">
+                                                        <HorizontalStackLayout.Resources>
+                                                            <Style TargetType="Border">
+                                                                <Setter Property="StrokeThickness" Value="0"/>
+                                                            </Style>
+                                                            <Style x:Key="rotulo" TargetType="Label">
+                                                                <Setter Property="FontSize" 
+                                                                        Value="10"/>
+                                                                <Setter Property="FontAttributes" 
+                                                                        Value="Bold"/>
+                                                                <Setter Property="TextTransform" 
+                                                                        Value="Uppercase"/>
+                                                            </Style>
+                                                            <Style TargetType="Label">
+                                                                <Setter Property="TextTransform" 
+                                                                        Value="Uppercase"/>
+                                                            </Style>
+                                                        </HorizontalStackLayout.Resources>
+                                                        <Border>
+                                                            <VerticalStackLayout>
+                                                                <Label Text="Name:"
+                                                                       Style="{StaticResource rotulo}"/>
+                                                                <Label Text="{Binding Name}"/>
+                                                            </VerticalStackLayout>
+                                                        </Border>
+                                                        <Border>
+                                                            <VerticalStackLayout>
+                                                                <Label Text="LastName:"
+                                                                       Style="{StaticResource rotulo}"/>
+                                                                <Label Text="{Binding LastName}"/>
+                                                            </VerticalStackLayout>
+                                                        </Border>
+                                                        <Border>
+                                                            <VerticalStackLayout>
+                                                                <Label Text="Age:"
+                                                                       Style="{StaticResource rotulo}"/>
+                                                                <Label Text="{Binding Age}"/>
+                                                            </VerticalStackLayout>
+                                                        </Border>
+                                                        <Border>
+                                                            <VerticalStackLayout>
+                                                                <Label Text="Address:"
+                                                                       Style="{StaticResource rotulo}"/>
+                                                                <Label Text="{Binding Address}"/>
+                                                            </VerticalStackLayout>
+                                                        </Border>
+                                                    </HorizontalStackLayout>
+                                                    <Button Grid.Column="1"
+                                                            Text="Editar"
+                                                            Command="{Binding 
+                                                        Source={RelativeSource 
+                                                        AncestorType={x:Type CollectionView},
+                                                        Mode=FindAncestor}, 
+                                                        Path=BindingContext.EditCommand}"
+                                                            CommandParameter="{Binding .}"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
                             </VerticalStackLayout>
                                 
                         </Grid>

@@ -1,4 +1,6 @@
 ﻿using MauiAppBtgPactual.Models;
+using MauiAppBtgPactual.Views;
+using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
@@ -11,6 +13,7 @@ public sealed class ClienteViewModel : BaseViewModel
     public ObservableCollection<ClienteModel>? ClienteObservable { get; set; }
     public ICommand CancelCommand { get; set; }
     public ICommand SaveCommand { get; set; }
+    public ICommand EditCommand { get; set; }
     public ICommand DeleteCommand { get; set; }
 
     private Guid _id;
@@ -38,7 +41,7 @@ public sealed class ClienteViewModel : BaseViewModel
         get => _name;
         set
         {
-            _name = Regex.Match(value, @"[a-zA-Z\s]+").Value;
+            _name = Regex.Match(value!, @"[a-zA-Z]+").Value;
             OnPropertyChanged();
         }
     }
@@ -47,7 +50,7 @@ public sealed class ClienteViewModel : BaseViewModel
         get => _lastName;
         set
         {
-            _lastName = Regex.Match(value, @"[a-zA-Z\s]+").Value;
+            _lastName = Regex.Match(value!, @"[a-zA-Z]+").Value;
             OnPropertyChanged();
         }
     }
@@ -56,7 +59,7 @@ public sealed class ClienteViewModel : BaseViewModel
         get => _age;
         set
         {
-            _age = Regex.Replace(value, @"\D+", "");
+            _age = Regex.Replace(value!, @"\D+", "");
             OnPropertyChanged();
         }
     }
@@ -134,7 +137,18 @@ public sealed class ClienteViewModel : BaseViewModel
 
             return valid;
         });
+        EditCommand = new Command(execute:async (object parameter) =>
+        {
+            var client = (ClienteModel)parameter;
 
+            Name = client.Name;
+            LastName = client.LastName;
+            Age = client.Age.ToString();
+            Address = client.Address;
+            ID = client.ID;
+
+            await ((NavigationPage)App.Current!.MainPage!).PushAsync(new CadastroCliente(this));
+        });
         DeleteCommand = new Command(execute: async () =>
         {
             var cliente = ClienteObservable.First(f => f.ID == ID);

@@ -99,10 +99,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Resource Include="Resources\Images\btg.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Views\CadastroCliente.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
