@@ -65,14 +65,14 @@
             <HorizontalStackLayout Spacing="10"
                                    HorizontalOptions="End">
                 <Button Text="Cancelar"
-                        Background="{StaticResource gradientBrushRedSylvia}"
+                        Background="{DynamicResource gradientBrushRedSylvia}"
                         Command="{Binding CancelCommand}"/>
                 <Button Text="Deletar"
                         IsVisible="{Binding IsDelete}"
-                        Background="{StaticResource blueFoscoGradiente}"
+                        Background="{DynamicResource blueFoscoGradiente}"
                         Command="{Binding DeleteCommand}"/>
                 <Button Text="Salvar"
-                        Background="{StaticResource gradientBrushLilas}"
+                        Background="{DynamicResource gradientBrushLilas}"
                         Command="{Binding SaveCommand}"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
